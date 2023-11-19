@@ -13,7 +13,7 @@ const AddCoffee = () => {
         letters, as opposed to using Content here.
       </p>
       <form>
-        <div className="bg-[#F4F3F0] grid grid-rows-4 grid-flow-col place-content-center gap-4 ">
+        <div className="bg-[#F4F3F0] grid grid-rows-4 grid-flow-col place-content-c`enter gap-4 ">
           <div className="">
             <p>Name: </p>
             <TextInput
