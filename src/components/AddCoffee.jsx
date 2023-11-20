@@ -1,5 +1,6 @@
 import { TextInput } from "keep-react";
 import { Coffee, Envelope } from "phosphor-react";
+import Swal from "sweetalert2";
 
 const AddCoffee = () => {
   const handleAddCoffee = (event) => {
@@ -24,6 +25,26 @@ const AddCoffee = () => {
       photo,
     };
     console.log(newCoffee);
+
+    // server connection and send data
+    fetch("http://localhost:5000/coffee", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newCoffee),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Good job!",
+            text: "Coffee added to the server",
+            icon: "success",
+          });
+        }
+      });
   };
   return (
     <>
@@ -50,7 +71,7 @@ const AddCoffee = () => {
               <TextInput
                 id="#id-9"
                 name="quantity"
-                placeholder="Forkan Hossen"
+                placeholder="1000"
                 color="gray"
                 sizing="md"
                 addon={<Envelope size={20} color="#5E718D" />}
