@@ -4,6 +4,26 @@ import { Coffee, Envelope } from "phosphor-react";
 const AddCoffee = () => {
   const handleAddCoffee = (event) => {
     event.preventDefault();
+
+    const form = event.target;
+    const name = form.name.value;
+    const quantity = form.quantity.value;
+    const supplier = form.supplier.value;
+    const taste = form.taste.value;
+    const category = form.category.value;
+    const details = form.details.value;
+    const photo = form.photo.value;
+
+    const newCoffee = {
+      name,
+      quantity,
+      supplier,
+      taste,
+      category,
+      details,
+      photo,
+    };
+    console.log(newCoffee);
   };
   return (
     <>
@@ -16,6 +36,7 @@ const AddCoffee = () => {
               <p>Name: </p>
               <TextInput
                 id="#id-9"
+                name="name"
                 placeholder="Espresso"
                 color="gray"
                 sizing="md"
@@ -25,9 +46,10 @@ const AddCoffee = () => {
             </div>
 
             <div>
-              <p>Chef Name: </p>
+              <p>Quantity: </p>
               <TextInput
                 id="#id-9"
+                name="quantity"
                 placeholder="Forkan Hossen"
                 color="gray"
                 sizing="md"
@@ -39,6 +61,7 @@ const AddCoffee = () => {
               <p>Supplier: </p>
               <TextInput
                 id="#id-9"
+                name="supplier"
                 placeholder="BD kehwa ltd"
                 color="gray"
                 sizing="md"
@@ -51,6 +74,7 @@ const AddCoffee = () => {
               <TextInput
                 className="w-full"
                 id="#id-9"
+                name="taste"
                 placeholder="sweet"
                 color="gray"
                 sizing="md"
@@ -62,6 +86,7 @@ const AddCoffee = () => {
               <p>Category: </p>
               <TextInput
                 id="#id-9"
+                name="category"
                 placeholder="Dark Coffee"
                 color="gray"
                 sizing="md"
@@ -73,6 +98,7 @@ const AddCoffee = () => {
               <p>Details: </p>
               <TextInput
                 id="#id-9"
+                name="details"
                 placeholder="Best coffee in italy, taste sweet and good"
                 color="gray"
                 sizing="md"
@@ -85,6 +111,7 @@ const AddCoffee = () => {
               <TextInput
                 className="w-full"
                 id="#id-9"
+                name="photo"
                 placeholder="https://www.imageurl.com"
                 color="gray"
                 sizing="md"
